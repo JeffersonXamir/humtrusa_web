@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <td>#</td>
+            <td>nombre</td>
+            <td>direccion</td>
+            <td>telefono</td>
+            <td>ruc</td>
+            <td>fechaCreacion</td>
+            <td>estado</td>
+            <td>acciones</td>
+        </tr>
+        </thead>
+        <tbody >
+        {% if empresas %}
+            {% for empresa in empresas %}
+                <tr class="table-active">
+                    <td>{{ empresa.id }}</td>
+                    <td>{{ empresa.nombre }}</td>
+                    <td>{{ empresa.direccion }}</td>
+                    <td>{{ empresa.telefono }}</td>
+                    <td>{{ empresa.ruc }}</td>
+                    <td>{{ empresa.fechaCreacion }}</td>
+                    <td>{{ empresa.estado }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{% url 'empresa_editar' empresa.id %}"> Editar </a>
+                    <a class="btn btn-danger" href="{% url 'empresa_eliminar' empresa.id %}"> Eliminar </a>
+                </td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <h1> no hay registro </h1>
+        {% endif %}
+        </tbody>
+    </table>
+{% endblock %}
