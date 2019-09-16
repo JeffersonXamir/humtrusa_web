@@ -1,7 +1,7 @@
 from django.contrib import admin
 from empresa.models import *
 
-admin.site.register(Empresa)
+"""admin.site.register(Empresa)
 admin.site.register(Usuario)
 admin.site.register(Roles)
 admin.site.register(RelacionRolesUsuario)
@@ -13,4 +13,4 @@ admin.site.register(Iva)
 admin.site.register(TipoPago)
 admin.site.register(TipoDocumento)
 admin.site.register(CabFactura)
-admin.site.register(DetFactura)
+admin.site.register(DetFactura)"""

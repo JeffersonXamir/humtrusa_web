@@ -1,42 +1,103 @@
-{% extends 'base/base.html' %}
+{% extends "base_users.html" %}
 
-{% block title %}
-Login
-{% endblock %}
-{% block navbar%}
-{% endblock %}
+{% block title %}Sign-up / Login{% endblock title %}
 {% block content %}
-<form method="post">
-	{% csrf_token %}
-	 <div class="row">
-    	<div class="col-md-6 col-md-offset-3">
-    		<div class="form-group">
-        		<label for="username">Nombre de usuario:</label>
-        		<input class="form-control" type="text" name="username">
-    	   </div>
-        </div>
-    </div>    
-    <div class="row">
-    	<div class="col-md-6 col-md-offset-3">
-    		<div class="form-group">
-        		<label for="username">Contraseña:</label>
-        		<input class="form-control" type="password" name="password">
-    	   </div>
+
+
+
+    <!-- start Login box -->
+    <div class="container color1" id="login-block">
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
+
+                <div class="login-box clearfix animated flipInY">
+                    <div class="login-logo">
+                        <!--<a href="#"><img src="img/login-logo.png" alt="Company Logo" /></a>-->
+                        <h1>humtrusa</h1>
+                    </div>
+                    <hr/>
+                    <div class="login-form">
+                        <div class="alert alert-error hide">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <h4>Error!</h4>
+                            Your Error Message goes here
+                        </div>
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6 col-md-offset-3">
+                                    <div class="form-group">
+                                        <label for="username">Nombre de usuario:</label>
+                                        <input class="form-control" type="text" name="username">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-md-offset-3">
+                                    <div class="form-group">
+                                        <label for="username">Contraseña:</label>
+                                        <input class="form-control" type="password" name="password">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-md-offset-3">
+                                    <div class="form-group">
+                                        <a href="{% url 'password_reset' %}">Olvidé mi contraseña</a>
+                                        <!-- <input class="btn btn-primary" type="submit" value="Ingresar"> -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 col-md-offset-3">
+                                    <div class="form-group">
+
+                                        <button type="submit" name="login_form" class="btn btn-red ">INGRESAR</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+
+
+                        <div class="form-group">
+                            {{ login_form.username }}
+                            {{ login_form.username.errors }}
+                        </div>
+                        <div class="form-group">
+
+                            {{ login_form.password }}
+                            {{ login_form.password.errors }}
+                        </div>
+
+                        </form>
+
+
+                    </div>
+                </div>
+
+                <div class="social-login row">
+                    <div class="fb-login col-lg-6 col-md-12 animated flipInX">
+                        <a href="https://www.facebook.com/" class="btn btn-facebook btn-block">Siguenos
+                            en <strong>Facebook</strong></a>
+                    </div>
+                    <!-- <div class="twit-login col-lg-6 col-md-12 animated flipInX">
+                         <a href="#" class="btn btn-twitter btn-block">Siguenos en<strong>Twitter</strong></a>
+                     </div>-->
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row">
-    	<div class="col-md-6 col-md-offset-3">
-    		<div class="form-group">
-                <a href="{% url 'password_reset' %}">Olvidé mi contraseña</a>
-        		<input class="btn btn-primary" type="submit" value="Ingresar">
-    	   </div>
-        </div>
-    </div>
 
-</form>
+    <!-- End Login box -->
+    <footer class="container color1">
+        <p id="footer-text">
+            <small>Copyright &copy; 2015</small>
+        </p>
+    </footer>
 
 
-{% endblock %}
-{% block footer %}
-{% endblock %}
 
+
+{% endblock content %}

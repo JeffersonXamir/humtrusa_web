@@ -150,6 +150,6 @@ class DetFactura(models.Model):
     fechaCreacion = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        cadena = " factura #:{0} del cliente : {1}"
+        cadena = " factura #:{0} del clientes : {1}"
 
         return cadena.format(self.idCabFactura.facturaNumero, self.idCabFactura.idUsuario)

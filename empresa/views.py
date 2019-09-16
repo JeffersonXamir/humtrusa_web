@@ -11,7 +11,7 @@ def index(request):
 
 
 def index(request):
-    return render(request, 'empresa/index.html')
+    return render(request, 'users/home.html')
 
 
 def empresa_crear(request):
