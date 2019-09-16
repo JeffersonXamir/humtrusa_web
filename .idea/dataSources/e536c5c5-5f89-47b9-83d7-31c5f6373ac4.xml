@@ -1,0 +1,1780 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="db.sqlite3">
+  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.15">
+    <root id="1">
+      <ServerVersion>3.25.1</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="main">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <collation id="3" parent="1" name="BINARY"/>
+    <collation id="4" parent="1" name="NOCASE"/>
+    <collation id="5" parent="1" name="RTRIM"/>
+    <table id="6" parent="2" name="auth_group"/>
+    <table id="7" parent="2" name="auth_group_permissions"/>
+    <table id="8" parent="2" name="auth_permission"/>
+    <table id="9" parent="2" name="auth_user"/>
+    <table id="10" parent="2" name="auth_user_groups"/>
+    <table id="11" parent="2" name="auth_user_user_permissions"/>
+    <table id="12" parent="2" name="clientes_cliente"/>
+    <table id="13" parent="2" name="compras_cabeceracompra"/>
+    <table id="14" parent="2" name="compras_detallecompra"/>
+    <table id="15" parent="2" name="django_admin_log"/>
+    <table id="16" parent="2" name="django_content_type"/>
+    <table id="17" parent="2" name="django_migrations"/>
+    <table id="18" parent="2" name="django_session"/>
+    <table id="19" parent="2" name="empresa_cabfactura"/>
+    <table id="20" parent="2" name="empresa_claseproducto"/>
+    <table id="21" parent="2" name="empresa_detfactura"/>
+    <table id="22" parent="2" name="empresa_empresa"/>
+    <table id="23" parent="2" name="empresa_iva"/>
+    <table id="24" parent="2" name="empresa_medidaproducto"/>
+    <table id="25" parent="2" name="empresa_producto"/>
+    <table id="26" parent="2" name="empresa_relacionrolesusuario"/>
+    <table id="27" parent="2" name="empresa_roles"/>
+    <table id="28" parent="2" name="empresa_tipodocumento"/>
+    <table id="29" parent="2" name="empresa_tipopago"/>
+    <table id="30" parent="2" name="empresa_tipoproducto"/>
+    <table id="31" parent="2" name="empresa_usuario"/>
+    <table id="32" parent="2" name="factura_detallefactura"/>
+    <table id="33" parent="2" name="factura_factura"/>
+    <table id="34" parent="2" name="laboratorio_laboratorio"/>
+    <table id="35" parent="2" name="preventa_cabventa"/>
+    <table id="36" parent="2" name="preventa_detventa"/>
+    <table id="37" parent="2" name="productos_presentacion"/>
+    <table id="38" parent="2" name="productos_producto"/>
+    <table id="39" parent="2" name="proveedor_proveedor"/>
+    <table id="40" parent="2" name="sqlite_master">
+      <System>1</System>
+    </table>
+    <table id="41" parent="2" name="sqlite_sequence">
+      <System>1</System>
+    </table>
+    <table id="42" parent="2" name="ventas_cabeceraventa"/>
+    <table id="43" parent="2" name="ventas_detalleventa"/>
+    <column id="44" parent="6" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="45" parent="6" name="name">
+      <Position>2</Position>
+      <DataType>varchar(150)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="46" parent="6" name="sqlite_autoindex_auth_group_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>name</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="47" parent="6">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="48" parent="6">
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_auth_group_1</UnderlyingIndexName>
+    </key>
+    <column id="49" parent="7" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="50" parent="7" name="group_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="51" parent="7" name="permission_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="52" parent="7" name="auth_group_permissions_group_id_permission_id_0cd325b0_uniq">
+      <ColNames>group_id
+permission_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="53" parent="7" name="auth_group_permissions_group_id_b120cbf9">
+      <ColNames>group_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="54" parent="7" name="auth_group_permissions_permission_id_84c5c92e">
+      <ColNames>permission_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="55" parent="7">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="56" parent="7">
+      <ColNames>group_id</ColNames>
+      <RefTableName>auth_group</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="57" parent="7">
+      <ColNames>permission_id</ColNames>
+      <RefTableName>auth_permission</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="58" parent="8" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="59" parent="8" name="content_type_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="60" parent="8" name="codename">
+      <Position>3</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="61" parent="8" name="name">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="62" parent="8" name="auth_permission_content_type_id_codename_01ab375a_uniq">
+      <ColNames>content_type_id
+codename</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="63" parent="8" name="auth_permission_content_type_id_2f476e4b">
+      <ColNames>content_type_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="64" parent="8">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="65" parent="8">
+      <ColNames>content_type_id</ColNames>
+      <RefTableName>django_content_type</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="66" parent="9" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="67" parent="9" name="password">
+      <Position>2</Position>
+      <DataType>varchar(128)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="68" parent="9" name="last_login">
+      <Position>3</Position>
+      <DataType>datetime|0s</DataType>
+    </column>
+    <column id="69" parent="9" name="is_superuser">
+      <Position>4</Position>
+      <DataType>bool|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="70" parent="9" name="username">
+      <Position>5</Position>
+      <DataType>varchar(150)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="71" parent="9" name="first_name">
+      <Position>6</Position>
+      <DataType>varchar(30)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="72" parent="9" name="email">
+      <Position>7</Position>
+      <DataType>varchar(254)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="73" parent="9" name="is_staff">
+      <Position>8</Position>
+      <DataType>bool|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="74" parent="9" name="is_active">
+      <Position>9</Position>
+      <DataType>bool|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="75" parent="9" name="date_joined">
+      <Position>10</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="76" parent="9" name="last_name">
+      <Position>11</Position>
+      <DataType>varchar(150)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="77" parent="9" name="sqlite_autoindex_auth_user_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>username</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="78" parent="9">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="79" parent="9">
+      <ColNames>username</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_auth_user_1</UnderlyingIndexName>
+    </key>
+    <column id="80" parent="10" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="81" parent="10" name="user_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="82" parent="10" name="group_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="83" parent="10" name="auth_user_groups_user_id_group_id_94350c0c_uniq">
+      <ColNames>user_id
+group_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="84" parent="10" name="auth_user_groups_user_id_6a12ed8b">
+      <ColNames>user_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="85" parent="10" name="auth_user_groups_group_id_97559544">
+      <ColNames>group_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="86" parent="10">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="87" parent="10">
+      <ColNames>user_id</ColNames>
+      <RefTableName>auth_user</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="88" parent="10">
+      <ColNames>group_id</ColNames>
+      <RefTableName>auth_group</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="89" parent="11" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="90" parent="11" name="user_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="91" parent="11" name="permission_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="92" parent="11" name="auth_user_user_permissions_user_id_permission_id_14a6b632_uniq">
+      <ColNames>user_id
+permission_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="93" parent="11" name="auth_user_user_permissions_user_id_a95ead1b">
+      <ColNames>user_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="94" parent="11" name="auth_user_user_permissions_permission_id_1fbb5f2c">
+      <ColNames>permission_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="95" parent="11">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="96" parent="11">
+      <ColNames>user_id</ColNames>
+      <RefTableName>auth_user</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="97" parent="11">
+      <ColNames>permission_id</ColNames>
+      <RefTableName>auth_permission</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="98" parent="12" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="99" parent="12" name="nombre">
+      <Position>2</Position>
+      <DataType>varchar(60)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="100" parent="12" name="apellidos">
+      <Position>3</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="101" parent="12" name="direccion">
+      <Position>4</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="102" parent="12" name="telefono">
+      <Position>5</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="103" parent="12" name="cedula">
+      <Position>6</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="104" parent="12" name="sqlite_autoindex_clientes_cliente_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>cedula</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="105" parent="12">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="106" parent="12">
+      <ColNames>cedula</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_clientes_cliente_1</UnderlyingIndexName>
+    </key>
+    <column id="107" parent="13" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="108" parent="13" name="created">
+      <Position>2</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="109" parent="13" name="modified">
+      <Position>3</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="110" parent="13" name="codigo">
+      <Position>4</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="111" parent="13" name="fecha">
+      <Position>5</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="112" parent="13" name="distribuidor_id">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="113" parent="13" name="laboratorio_id">
+      <Position>7</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="114" parent="13" name="trabajador_id">
+      <Position>8</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="115" parent="13" name="sqlite_autoindex_compras_cabeceracompra_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>codigo</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="116" parent="13" name="compras_cabeceracompra_distribuidor_id_f6e0959e">
+      <ColNames>distribuidor_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="117" parent="13" name="compras_cabeceracompra_laboratorio_id_29009cbc">
+      <ColNames>laboratorio_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="118" parent="13" name="compras_cabeceracompra_trabajador_id_f5f983a6">
+      <ColNames>trabajador_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="119" parent="13">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="120" parent="13">
+      <ColNames>codigo</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_compras_cabeceracompra_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="121" parent="13">
+      <ColNames>distribuidor_id</ColNames>
+      <RefTableName>proveedor_proveedor</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="122" parent="13">
+      <ColNames>laboratorio_id</ColNames>
+      <RefTableName>laboratorio_laboratorio</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="123" parent="13">
+      <ColNames>trabajador_id</ColNames>
+      <RefTableName>auth_user</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="124" parent="14" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="125" parent="14" name="cantidad">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="126" parent="14" name="list_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="127" parent="14" name="producto_id">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="128" parent="14" name="compras_detallecompra_list_id_a3737b54">
+      <ColNames>list_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="129" parent="14" name="compras_detallecompra_producto_id_38c7f9c4">
+      <ColNames>producto_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="130" parent="14">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="131" parent="14">
+      <ColNames>list_id</ColNames>
+      <RefTableName>compras_cabeceracompra</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="132" parent="14">
+      <ColNames>producto_id</ColNames>
+      <RefTableName>productos_producto</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="133" parent="15" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="134" parent="15" name="action_time">
+      <Position>2</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="135" parent="15" name="object_id">
+      <Position>3</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="136" parent="15" name="object_repr">
+      <Position>4</Position>
+      <DataType>varchar(200)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="137" parent="15" name="change_message">
+      <Position>5</Position>
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="138" parent="15" name="content_type_id">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+    </column>
+    <column id="139" parent="15" name="user_id">
+      <Position>7</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="140" parent="15" name="action_flag">
+      <Position>8</Position>
+      <DataType>smallint unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="141" parent="15" name="django_admin_log_content_type_id_c4bce8eb">
+      <ColNames>content_type_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="142" parent="15" name="django_admin_log_user_id_c564eba6">
+      <ColNames>user_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="143" parent="15">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="144" parent="15">
+      <ColNames>content_type_id</ColNames>
+      <RefTableName>django_content_type</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="145" parent="15">
+      <ColNames>user_id</ColNames>
+      <RefTableName>auth_user</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <check id="146" parent="15">
+      <Predicate>&quot;action_flag&quot; &gt;= 0</Predicate>
+    </check>
+    <column id="147" parent="16" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="148" parent="16" name="app_label">
+      <Position>2</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="149" parent="16" name="model">
+      <Position>3</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="150" parent="16" name="django_content_type_app_label_model_76bd3d3b_uniq">
+      <ColNames>app_label
+model</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="151" parent="16">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="152" parent="17" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="153" parent="17" name="app">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="154" parent="17" name="name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="155" parent="17" name="applied">
+      <Position>4</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="156" parent="17">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="157" parent="18" name="session_key">
+      <Position>1</Position>
+      <DataType>varchar(40)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="158" parent="18" name="session_data">
+      <Position>2</Position>
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="159" parent="18" name="expire_date">
+      <Position>3</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="160" parent="18" name="sqlite_autoindex_django_session_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>session_key</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="161" parent="18" name="django_session_expire_date_a5c62663">
+      <ColNames>expire_date</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="162" parent="18">
+      <ColNames>session_key</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_django_session_1</UnderlyingIndexName>
+    </key>
+    <column id="163" parent="19" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="164" parent="19" name="facturaNumero">
+      <Position>2</Position>
+      <DataType>varchar(75)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="165" parent="19" name="fecha">
+      <Position>3</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="166" parent="19" name="estado">
+      <Position>4</Position>
+      <DataType>bool|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="167" parent="19" name="fechaCreacion">
+      <Position>5</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="168" parent="19" name="idEmpresa_id">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="169" parent="19" name="idTipoDocumento_id">
+      <Position>7</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="170" parent="19" name="idTipoPago_id">
+      <Position>8</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="171" parent="19" name="idUsuario_id">
+      <Position>9</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="172" parent="19" name="empresa_cabfactura_idEmpresa_id_58203190">
+      <ColNames>idEmpresa_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="173" parent="19" name="empresa_cabfactura_idTipoDocumento_id_f26205a9">
+      <ColNames>idTipoDocumento_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="174" parent="19" name="empresa_cabfactura_idTipoPago_id_2c40f19b">
+      <ColNames>idTipoPago_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="175" parent="19" name="empresa_cabfactura_idUsuario_id_8a7658c5">
+      <ColNames>idUsuario_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="176" parent="19">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="177" parent="19">
+      <ColNames>idEmpresa_id</ColNames>
+      <RefTableName>empresa_empresa</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="178" parent="19">
+      <ColNames>idTipoDocumento_id</ColNames>
+      <RefTableName>empresa_tipodocumento</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="179" parent="19">
+      <ColNames>idTipoPago_id</ColNames>
+      <RefTableName>empresa_tipopago</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="180" parent="19">
+      <ColNames>idUsuario_id</ColNames>
+      <RefTableName>empresa_usuario</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="181" parent="20" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="182" parent="20" name="nombre">
+      <Position>2</Position>
+      <DataType>varchar(75)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="183" parent="20" name="estado">
+      <Position>3</Position>
+      <DataType>bool|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="184" parent="20" name="fechaCreacion">
+      <Position>4</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="185" parent="20">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="186" parent="21" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="187" parent="21" name="cantidad">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="188" parent="21" name="precio">
+      <Position>3</Position>
+      <DataType>decimal|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="189" parent="21" name="iva">
+      <Position>4</Position>
+      <DataType>decimal|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="190" parent="21" name="descuento">
+      <Position>5</Position>
+      <DataType>decimal|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="191" parent="21" name="estado">
+      <Position>6</Position>
+      <DataType>bool|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="192" parent="21" name="fechaCreacion">
+      <Position>7</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="193" parent="21" name="idCabFactura_id">
+      <Position>8</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="194" parent="21" name="idProducto_id">
+      <Position>9</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="195" parent="21" name="empresa_detfactura_idCabFactura_id_be83c727">
+      <ColNames>idCabFactura_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="196" parent="21" name="empresa_detfactura_idProducto_id_59836930">
+      <ColNames>idProducto_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="197" parent="21">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="198" parent="21">
+      <ColNames>idCabFactura_id</ColNames>
+      <RefTableName>empresa_cabfactura</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="199" parent="21">
+      <ColNames>idProducto_id</ColNames>
+      <RefTableName>empresa_producto</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="200" parent="22" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="201" parent="22" name="nombre">
+      <Position>2</Position>
+      <DataType>varchar(75)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="202" parent="22" name="direccion">
+      <Position>3</Position>
+      <DataType>varchar(75)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="203" parent="22" name="telefono">
+      <Position>4</Position>
+      <DataType>varchar(75)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="204" parent="22" name="ruc">
+      <Position>5</Position>
+      <DataType>varchar(75)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="205" parent="22" name="estado">
+      <Position>6</Position>
+      <DataType>bool|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="206" parent="22" name="fechaCreacion">
+      <Position>7</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="207" parent="22">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="208" parent="23" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="209" parent="23" name="iva">
+      <Position>2</Position>
+      <DataType>decimal|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="210" parent="23" name="estado">
+      <Position>3</Position>
+      <DataType>bool|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="211" parent="23" name="fechaCreacion">
+      <Position>4</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="212" parent="23">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="213" parent="24" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="214" parent="24" name="nombre">
+      <Position>2</Position>
+      <DataType>varchar(75)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="215" parent="24" name="estado">
+      <Position>3</Position>
+      <DataType>bool|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="216" parent="24" name="fechaCreacion">
+      <Position>4</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="217" parent="24">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="218" parent="25" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="219" parent="25" name="nombre">
+      <Position>2</Position>
+      <DataType>varchar(75)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="220" parent="25" name="precioVenta">
+      <Position>3</Position>
+      <DataType>decimal|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="221" parent="25" name="Cantidad">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="222" parent="25" name="iva">
+      <Position>5</Position>
+      <DataType>bool|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="223" parent="25" name="estado">
+      <Position>6</Position>
+      <DataType>bool|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="224" parent="25" name="fechaCreacion">
+      <Position>7</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="225" parent="25">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="226" parent="26" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="227" parent="26" name="estado">
+      <Position>2</Position>
+      <DataType>bool|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="228" parent="26" name="fechaCreacion">
+      <Position>3</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="229" parent="26" name="idRoles_id">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="230" parent="26" name="idUsuario_id">
+      <Position>5</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="231" parent="26" name="empresa_relacionrolesusuario_idRoles_id_4610a9e4">
+      <ColNames>idRoles_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="232" parent="26" name="empresa_relacionrolesusuario_idUsuario_id_1859db69">
+      <ColNames>idUsuario_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="233" parent="26">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="234" parent="26">
+      <ColNames>idRoles_id</ColNames>
+      <RefTableName>empresa_roles</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="235" parent="26">
+      <ColNames>idUsuario_id</ColNames>
+      <RefTableName>empresa_usuario</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="236" parent="27" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="237" parent="27" name="nombre">
+      <Position>2</Position>
+      <DataType>varchar(75)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="238" parent="27" name="estado">
+      <Position>3</Position>
+      <DataType>bool|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="239" parent="27" name="fechaCreacion">
+      <Position>4</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="240" parent="27">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="241" parent="28" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="242" parent="28" name="nombre">
+      <Position>2</Position>
+      <DataType>varchar(75)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="243" parent="28" name="estado">
+      <Position>3</Position>
+      <DataType>bool|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="244" parent="28" name="fechaCreacion">
+      <Position>4</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="245" parent="28">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="246" parent="29" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="247" parent="29" name="nombre">
+      <Position>2</Position>
+      <DataType>varchar(75)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="248" parent="29" name="estado">
+      <Position>3</Position>
+      <DataType>bool|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="249" parent="29" name="fechaCreacion">
+      <Position>4</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="250" parent="29">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="251" parent="30" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="252" parent="30" name="nombre">
+      <Position>2</Position>
+      <DataType>varchar(75)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="253" parent="30" name="estado">
+      <Position>3</Position>
+      <DataType>bool|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="254" parent="30" name="fechaCreacion">
+      <Position>4</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="255" parent="30">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="256" parent="31" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="257" parent="31" name="cedula">
+      <Position>2</Position>
+      <DataType>varchar(75)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="258" parent="31" name="nombre">
+      <Position>3</Position>
+      <DataType>varchar(75)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="259" parent="31" name="apellido">
+      <Position>4</Position>
+      <DataType>varchar(75)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="260" parent="31" name="telefono">
+      <Position>5</Position>
+      <DataType>varchar(75)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="261" parent="31" name="direccion">
+      <Position>6</Position>
+      <DataType>varchar(75)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="262" parent="31" name="correo">
+      <Position>7</Position>
+      <DataType>varchar(75)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="263" parent="31" name="password">
+      <Position>8</Position>
+      <DataType>varchar(75)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="264" parent="31" name="tipoUsuario">
+      <Position>9</Position>
+      <DataType>varchar(75)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="265" parent="31" name="estado">
+      <Position>10</Position>
+      <DataType>bool|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="266" parent="31" name="fechaCreacion">
+      <Position>11</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="267" parent="31">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="268" parent="32" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="269" parent="32" name="descripcion">
+      <Position>2</Position>
+      <DataType>varchar(40)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="270" parent="32" name="precio">
+      <Position>3</Position>
+      <DataType>decimal|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="271" parent="32" name="cantidad">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="272" parent="32" name="impuesto">
+      <Position>5</Position>
+      <DataType>decimal|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="273" parent="32" name="subtotal">
+      <Position>6</Position>
+      <DataType>decimal|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="274" parent="32" name="factura_id">
+      <Position>7</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="275" parent="32" name="producto_id">
+      <Position>8</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="276" parent="32" name="factura_detallefactura_factura_id_2b91fc6c">
+      <ColNames>factura_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="277" parent="32" name="factura_detallefactura_producto_id_1b19e197">
+      <ColNames>producto_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="278" parent="32">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="279" parent="32">
+      <ColNames>factura_id</ColNames>
+      <RefTableName>factura_factura</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="280" parent="32">
+      <ColNames>producto_id</ColNames>
+      <RefTableName>productos_producto</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="281" parent="33" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="282" parent="33" name="serie">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="283" parent="33" name="numero">
+      <Position>3</Position>
+      <DataType>varchar(6)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="284" parent="33" name="fecha">
+      <Position>4</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="285" parent="33" name="total">
+      <Position>5</Position>
+      <DataType>decimal|0s</DataType>
+    </column>
+    <column id="286" parent="33" name="cliente_id">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+    </column>
+    <column id="287" parent="33" name="vendedor_id">
+      <Position>7</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="288" parent="33" name="factura_factura_serie_numero_b5cfac3a_uniq">
+      <ColNames>serie
+numero</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="289" parent="33" name="factura_factura_cliente_id_dbff4235">
+      <ColNames>cliente_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="290" parent="33" name="factura_factura_vendedor_id_485d1ffa">
+      <ColNames>vendedor_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="291" parent="33">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="292" parent="33">
+      <ColNames>cliente_id</ColNames>
+      <RefTableName>clientes_cliente</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="293" parent="33">
+      <ColNames>vendedor_id</ColNames>
+      <RefTableName>auth_user</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="294" parent="34" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="295" parent="34" name="codigo">
+      <Position>2</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="296" parent="34" name="nombre">
+      <Position>3</Position>
+      <DataType>varchar(40)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="297" parent="34" name="sanitario">
+      <Position>4</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="298" parent="34" name="autorizacion">
+      <Position>5</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="299" parent="34" name="estado">
+      <Position>6</Position>
+      <DataType>bool|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="300" parent="34" name="fechaCreacion">
+      <Position>7</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="301" parent="34">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="302" parent="35" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="303" parent="35" name="usuarioNombre">
+      <Position>2</Position>
+      <DataType>varchar(75)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="304" parent="35" name="fecha">
+      <Position>3</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="305" parent="35" name="estado">
+      <Position>4</Position>
+      <DataType>bool|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="306" parent="35" name="fechaCreacion">
+      <Position>5</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="307" parent="35">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="308" parent="36" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="309" parent="36" name="productoNombre">
+      <Position>2</Position>
+      <DataType>varchar(75)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="310" parent="36" name="cantidad">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="311" parent="36" name="precio">
+      <Position>4</Position>
+      <DataType>decimal|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="312" parent="36" name="iva">
+      <Position>5</Position>
+      <DataType>decimal|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="313" parent="36" name="descuento">
+      <Position>6</Position>
+      <DataType>decimal|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="314" parent="36" name="estado">
+      <Position>7</Position>
+      <DataType>bool|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="315" parent="36" name="fechaCreacion">
+      <Position>8</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="316" parent="36" name="idCabVenta_id">
+      <Position>9</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="317" parent="36" name="preventa_detventa_idCabVenta_id_5c5c4efd">
+      <ColNames>idCabVenta_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="318" parent="36">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="319" parent="36">
+      <ColNames>idCabVenta_id</ColNames>
+      <RefTableName>preventa_cabventa</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="320" parent="37" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="321" parent="37" name="nombre">
+      <Position>2</Position>
+      <DataType>varchar(60)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="322" parent="37">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="323" parent="38" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="324" parent="38" name="lote">
+      <Position>2</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="325" parent="38" name="tipo">
+      <Position>3</Position>
+      <DataType>varchar(30)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="326" parent="38" name="nombre">
+      <Position>4</Position>
+      <DataType>varchar(200)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="327" parent="38" name="componente">
+      <Position>5</Position>
+      <DataType>varchar(200)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="328" parent="38" name="concentracion">
+      <Position>6</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="329" parent="38" name="sanitario">
+      <Position>7</Position>
+      <DataType>varchar(200)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="330" parent="38" name="fecha_expiracion">
+      <Position>8</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="331" parent="38" name="fecha_produccion">
+      <Position>9</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="332" parent="38" name="descripcion">
+      <Position>10</Position>
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="333" parent="38" name="precio_Compra">
+      <Position>11</Position>
+      <DataType>decimal|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="334" parent="38" name="precio_venta">
+      <Position>12</Position>
+      <DataType>decimal|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="335" parent="38" name="stock">
+      <Position>13</Position>
+      <DataType>smallint unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="336" parent="38" name="iva">
+      <Position>14</Position>
+      <DataType>decimal|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="337" parent="38" name="estado">
+      <Position>15</Position>
+      <DataType>bool|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="338" parent="38" name="fechaCreacion">
+      <Position>16</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="339" parent="38" name="presentacion_id">
+      <Position>17</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="340" parent="38" name="sqlite_autoindex_productos_producto_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>lote</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="341" parent="38" name="sqlite_autoindex_productos_producto_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>nombre</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="342" parent="38" name="productos_producto_presentacion_id_3e18a480">
+      <ColNames>presentacion_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="343" parent="38">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="344" parent="38">
+      <ColNames>lote</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_productos_producto_1</UnderlyingIndexName>
+    </key>
+    <key id="345" parent="38">
+      <ColNames>nombre</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_productos_producto_2</UnderlyingIndexName>
+    </key>
+    <foreign-key id="346" parent="38">
+      <ColNames>presentacion_id</ColNames>
+      <RefTableName>productos_presentacion</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <check id="347" parent="38">
+      <Predicate>&quot;stock&quot; &gt;= 0</Predicate>
+    </check>
+    <column id="348" parent="39" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="349" parent="39" name="nombre">
+      <Position>2</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="350" parent="39" name="ruc">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="351" parent="39" name="telefono">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="352" parent="39" name="direccion">
+      <Position>5</Position>
+      <DataType>varchar(60)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="353" parent="39" name="estado">
+      <Position>6</Position>
+      <DataType>bool|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="354" parent="39" name="fechaCreacion">
+      <Position>7</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="355" parent="39" name="sqlite_autoindex_proveedor_proveedor_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ruc</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="356" parent="39">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="357" parent="39">
+      <ColNames>ruc</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_proveedor_proveedor_1</UnderlyingIndexName>
+    </key>
+    <column id="358" parent="40" name="type">
+      <Position>1</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="359" parent="40" name="name">
+      <Position>2</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="360" parent="40" name="tbl_name">
+      <Position>3</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="361" parent="40" name="rootpage">
+      <Position>4</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="362" parent="40" name="sql">
+      <Position>5</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="363" parent="41" name="name">
+      <Position>1</Position>
+    </column>
+    <column id="364" parent="41" name="seq">
+      <Position>2</Position>
+    </column>
+    <column id="365" parent="42" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="366" parent="42" name="created">
+      <Position>2</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="367" parent="42" name="modified">
+      <Position>3</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="368" parent="42" name="ruc">
+      <Position>4</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="369" parent="42" name="fecha">
+      <Position>5</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="370" parent="42" name="cliente_id">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+    </column>
+    <index id="371" parent="42" name="sqlite_autoindex_ventas_cabeceraventa_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ruc</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="372" parent="42" name="ventas_cabeceraventa_cliente_id_13ec5591">
+      <ColNames>cliente_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="373" parent="42">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="374" parent="42">
+      <ColNames>ruc</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_ventas_cabeceraventa_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="375" parent="42">
+      <ColNames>cliente_id</ColNames>
+      <RefTableName>clientes_cliente</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="376" parent="43" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="377" parent="43" name="cantidad">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="378" parent="43" name="list_id_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="379" parent="43" name="producto_id">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="380" parent="43" name="ventas_detalleventa_list_id_id_285cc982">
+      <ColNames>list_id_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="381" parent="43" name="ventas_detalleventa_producto_id_a820c807">
+      <ColNames>producto_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="382" parent="43">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="383" parent="43">
+      <ColNames>list_id_id</ColNames>
+      <RefTableName>ventas_cabeceraventa</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="384" parent="43">
+      <ColNames>producto_id</ColNames>
+      <RefTableName>productos_producto</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+  </database-model>
+</dataSource>

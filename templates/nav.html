@@ -1,0 +1,171 @@
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<div class="wrapper">
+    <header class="main-header">
+        <!-- Logo -->
+        <a href="#" class="logo">
+            <!-- mini logo for sidebar mini 50x50 pixels -->
+            <span class="logo-mini"><b>H</b>umtrusa</span>
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg"><b>Humtrusa</b></span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+
+                    <!-- User Account: style can be found in dropdown.less -->
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="{{ MEDIA_URL }}{{ user.userprofile.avatar }}" class="img-circle" alt="User Image"
+                                 height="20" width="20">
+                            <span class="hidden-xs">{{ user.username|capfirst }} {{ user.last_name|capfirst }}</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- User image -->
+                            <li class="user-header">
+                                <img src="{{ MEDIA_URL }}{{ user.userprofile.avatar }}" class="img-circle"
+                                     alt="User Image">
+                                <p>
+                                    {{ user.username|capfirst }} {{ user.last_name|capfirst }}
+
+                                </p>
+                            </li>
+
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <!--<a href="#" class="btn btn-default btn-flat">Profile</a>-->
+                                </div>
+                                <div class="pull-right">
+                                    <a href="{% url 'logout' %}" class="btn btn-default btn-flat">Salir</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Control Sidebar Toggle Button -->
+                    <!--<li>
+                      <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                    </li>-->
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- Sidebar user panel -->
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="{{ MEDIA_URL }}{{ user.userprofile.avatar }}" class="img-circle" alt="User Image">
+                </div>
+                <div class="pull-left info">
+                    <p>{{ user.username|capfirst }} {{ user.last_name|capfirst }}</p>
+                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                </div>
+            </div>
+
+            <!-- sidebar menu: : style can be found in sidebar.less -->
+            <ul class="sidebar-menu">
+                <li class="header">MAIN NAVIGATION</li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-child"></i> <span>Usuarios</span> <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{% url 'listar_usuario' %}">Usuarios</a></li>
+                        <li><a href="{% url 'crear_usuario' %}">Crear Usuarios</a></li>
+                        <li><a href="{% url 'perfil_usuario' %}">Perfil Usuarios</a></li>
+
+
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-child"></i> <span>Clientes</span> <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{% url 'listar_clientes' %}">Clientes</a></li>
+                        <li><a href="{% url 'listar_clientes' %}">Crear Clientes</a></li>
+
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-child"></i> <span>Proveedores</span> <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{% url 'listar_proveedor' %}">Proveedores</a></li>
+                        <li><a href="{% url 'crear_proveedor' %}">Crear Proveedor</a></li>
+
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-child"></i> <span>Productos</span> <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+
+                        <li><a href="{% url 'listar_productos' %}">Productos</a></li>
+                        <li><a href="{% url 'crear_productos' %}">Crear Productos</a></li>
+
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-medkit"></i>
+                        <span>Laboratorio</span>
+                        <span class="label label-primary pull-right"></span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{% url 'listar_laboratorios' %}">Laboratorios</a></li>
+                        <li><a href="{% url 'crear_laboratorios' %}">Crear Laboratorio</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-pie-chart"></i>
+                        <span>Compras</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{% url 'listar_compras' %}">Compras</a></li>
+                        <li><a href="{% url 'realizar_compras' %}">Realizar Compras</a></li>
+                        <li><a href="{% url 'generar_reporte_lista_compras' %}">Reporte Compras</a></li>
+
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-laptop"></i>
+                        <span>Ventas</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{% url 'listar_ventas' %}">Ventas</a></li>
+                        <li><a href="{% url 'factura_ventas' %}">Realizar Ventas</a></li>
+                        <li><a href="{% url 'generar_reporte_factura' %}">Reporte Ventas</a></li>
+
+
+                    </ul>
+                </li>
+
+                <!--    <li class="header">Alertas</li>
+                    <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Productos</span></a></li>
+                    <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Compras</span></a></li>
+                    <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Ventas</span></a></li>      -->
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+      

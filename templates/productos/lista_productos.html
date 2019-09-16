@@ -1,0 +1,114 @@
+{% extends "productos/base_productos.html" %}
+{% block title %}Productos{% endblock title %}
+{% block content %}
+    {% include "nav.html" %}
+    {% block producto %}
+        <div class="wrapper">
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        Productos
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="{% url 'index' %}"><i class="fa fa-dashboard"></i>Inicio</a></li>
+                        <li class="active">Productos</li>
+                        <li><a href="{% url 'crear_productos' %}">Nuevo Productos</a></li>
+                    </ol>
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+                    <div class="row">
+                        <div class="col-xs-12">
+
+                            <div class="box box-primary">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">
+                                        <a href="{% url 'crear_productos' %}" class="btn btn-success">
+                                            Nuevo
+                                        </a>
+
+                                        <a class="btn btn-primary pull-right"
+                                           href="{% url 'reporte_productos' %}">imprimir</a>
+
+
+                                    </h3>
+                                    <div class="box-tools pull-right">
+                                        <button class="btn btn-box-tool" data-widget="collapse"><i
+                                                class="fa fa-minus"></i>
+                                        </button>
+                                    </div><!-- /.box-tools -->
+                                </div><!-- /.box-header -->
+                                <div class="box-body">
+                                    <table id="example1" class="table table-bordered table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>N°</th>
+                                            <th>Presentacion</th>
+                                            <th>Tipo</th>
+                                            <th>Nombre</th>
+                                            <th>Precio venta</th>
+                                            <th>Vencimiento Dias - Fecha</th>
+                                            <th>Stock</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for m in productos %}
+
+                                            <tr>
+                                                <td>{{ forloop.counter }}</td>
+                                                <td>{{ m.presentacion }} </td>
+                                                <td>{{ m.tipo }}</td>
+                                                <td>{{ m.nombre|lower }}</td>
+                                                <td>{{ m.precio_venta }}</td>
+                                                {% if m.estadoproducto > 30 %}
+                                                    <td><b style="color:green;">{{ m.estadoproducto }}
+                                                        - {{ m.fecha_expiracion|date:'d/m/Y' }}</b></td>
+                                                {% elif m.estadoproducto <= 30 and m.estadoproducto > 0 %}
+                                                    <td><b style="color:rgb(243, 156, 18);">{{ m.estadoproducto }}
+                                                        - {{ m.fecha_expiracion|date:'d/m/Y' }}</b></td>
+                                                {% else %}
+                                                    <td><b style="color:red;">{{ m.estadoproducto }}
+                                                        - {{ m.fecha_expiracion|date:'d/m/Y' }}</b></td>
+                                                {% endif %}
+
+                                                {% if m.stock > 0 and m.stock < 10 %}
+                                                    <td><b style="color:red;">{{ m.stock }}</b></td>
+                                                {% elif m.stock > 10 and m.stock < 50 %}
+                                                    <td><b style="color:rgb(243, 156, 18);">{{ m.stock }}</b></td>
+                                                {% else %}
+                                                    <td><b style="color:green;">{{ m.stock }}</b></td>
+
+                                                {% endif %}
+                                                <td class="text-right">
+                                                    <a href="{% url 'detalle_productos' m.id %} "
+                                                       class="btn btn-success"><span
+                                                            class="glyphicon glyphicon-eye-open"></span></a>
+                                                    <a href="{% url 'actualizar_productos' m.id %}"
+                                                       class="btn btn-warning"><span
+                                                            class="glyphicon glyphicon-pencil"></span></a>
+
+
+                                                    <a href="{% url 'eliminar_productos' m.id %}"
+                                                       class="btn btn-danger"><span
+                                                            class="glyphicon glyphicon-trash"></span></a>
+
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+
+                                        </tbody>
+                                    </table>
+                                </div><!-- /.box-body -->
+                            </div><!-- /.box -->
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </section><!-- /.content -->
+            </div><!-- /.content-wrapper -->
+        </div>
+        {% include "footer.html" %}
+    {% endblock producto %}
+{% endblock content %}
